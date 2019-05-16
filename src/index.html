@@ -13,9 +13,20 @@
     <div id="app">
         <header class="header">
             <ul>
-                <li v-for="(item,index) in list" :class="[{active:index==ind}]" @click="ind=index">{{item}}</li>
+                <li v-for="(item,index) in list" :class="[{active:index==ind}]" @click="ind=index">{{item.tit}}</li>
             </ul>
         </header>
+        <main class="main">
+            <ul>
+                <li v-for="(item) in list[ind].data">
+                    <div>
+                        <span>$</span>
+                        <p>{{item.num}}</p>
+                    </div>
+                    <div>{{item.title}}</div>
+                </li>
+            </ul>
+        </main>
     </div>
 
 </body>
@@ -26,8 +37,59 @@
         data: {
             ind: 0,
             list: [
-                "未使用", "已使用", "已过期"
-            ]
+                {tit:"未使用"
+                ,
+                data:[
+                    {
+                        title:"人民广场吃杂技",
+                        num:999
+                    },
+                    {
+                        title:"人民广场吃杂技2",
+                        num:999
+                    },
+                    {
+                        title:"人民广场吃杂技3",
+                        num:999
+                    }
+                ]
+                },
+                {tit:"已使用"
+                ,
+                data:[
+                    {
+                        title:"未使用",
+                        num:999
+                    },
+                    {
+                        title:"未使用2",
+                        num:999
+                    },
+                    {
+                        title:"未使用3",
+                        num:999
+                    }
+                ]
+                },
+                {tit:"已过期"
+                ,
+                data:[
+                    {
+                        title:"过期1",
+                        num:999
+                    },
+                    {
+                        title:"过期2",
+                        num:999
+                    },
+                    {
+                        title:"过期3",
+                        num:999
+                    }
+                ]
+                }
+            ],
+            
         }
     })
 </script>
