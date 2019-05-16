@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div id="app">
+        <header class="header">
+            <ul>
+                <li v-for="(item,index) in list" :class="[{active:index==ind}]" @click="ind=index">{{item}}</li>
+            </ul>
+        </header>
+    </div>
+
+</body>
+<script src="./js/vue.min.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            ind: 0,
+            list: [
+                "未使用", "已使用", "已过期"
+            ]
+        }
+    })
+</script>
+
+</html>
